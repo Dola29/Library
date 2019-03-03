@@ -36,7 +36,7 @@ class ParentModel {
     }
     
     /* recibe un string con los campos a seleccionar y el id del registro
-    y retorna un registro de la tabla 
+       y retorna un registro de la tabla 
     */
     public function get_single($fields, $join = null, $id) {
         // Crear query
