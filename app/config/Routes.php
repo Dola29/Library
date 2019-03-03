@@ -17,10 +17,17 @@ $router->get('/', function() {
  *  Rutas Dinamicas
 *  */
 
-//Obtener todos los libros en el sistema
+//Obtener todos los libros del sistema
 $router->get('/books/', function() {
-    $books = App\Models\Book::get();
-    return $books;
+    $books = new App\Controllers\Book();
+    print_r($books->read_all());
+});
+
+//Obtener un libro del sistema
+$router->get('/book/(\d+)', function($id = null) {
+    $books = new App\Controllers\Book();
+	print_r($books->read_one($id));
+	//print $id;
 });
 
 //Dynamic route with (successive) optional subpatterns: /blog(/year(/month(/day(/slug))))

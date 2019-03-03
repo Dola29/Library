@@ -2,7 +2,7 @@
 namespace App\Controllers;
 
 use App\Models\BookModel;
-use ParentController;
+use App\Controllers\ParentController;
 
 class Book extends ParentController
 {
@@ -12,14 +12,14 @@ class Book extends ParentController
 
         $this->book = new BookModel();
 
-        if($method != null){
+        /*if($method != null){
             if($method == 'read_all'){
                 $this->read_all();
             }
             
         }else{
             echo 'Mensaje por defecto';
-        }
+        }*/
         
     }
 

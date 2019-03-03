@@ -29,7 +29,7 @@ class ParentModel {
         $stmt->execute();
         
         //se convierte la data en un arreglo
-        $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $data = $stmt->fetchAll(\PDO::FETCH_ASSOC);
         
         //retorna la data
         return $data;
@@ -40,20 +40,16 @@ class ParentModel {
     */
     public function get_single($fields, $id) {
         // Crear query
-        $query = 'SELECT '.$fields.'FROM '.
-                $this->table .'WHERE id = ?';
+        $query = "SELECT {$fields} FROM {$this->table} WHERE id = {$id}";
 
         // Preparar statement
         $stmt = $this->conn->prepare($query);
-
-        // Enlazar ID
-        $stmt->bindParam(1, $id);
-
+        
         // Ejecutar query
         $stmt->execute();
 
         //se convierte el registro en un arreglo
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        $row = $stmt->fetch(\PDO::FETCH_ASSOC);
         
         // llenar propiedades
         return $row;         

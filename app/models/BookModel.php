@@ -1,7 +1,7 @@
 <?php 
 namespace App\Models;
 
-use ParentModel;
+use App\ModelsParentModel;
 
 
 class BookModel extends ParentModel {
