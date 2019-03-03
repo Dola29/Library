@@ -9,18 +9,7 @@ class Book extends ParentController
     private $book;
 
     public function __construct($method = null) {
-
-        $this->book = new BookModel();
-
-        /*if($method != null){
-            if($method == 'read_all'){
-                $this->read_all();
-            }
-            
-        }else{
-            echo 'Mensaje por defecto';
-        }*/
-        
+        $this->book = new BookModel();        
     }
 
     public function read_all(){ 
