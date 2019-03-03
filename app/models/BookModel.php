@@ -3,7 +3,6 @@ namespace App\Models;
 
 use App\ModelsParentModel;
 
-
 class BookModel extends ParentModel {
 
   public function __construct() {

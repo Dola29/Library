@@ -18,9 +18,9 @@ class ParentModel {
     /* recibe un string con los campos a seleccionar
        y retorna todos los registros de la tabla 
     */
-    public function get_all($fields) {
+    public function get_all($fields, $join = null) {
         // Crear query
-        $query = "SELECT  {$fields} FROM {$this->table}";
+        $query = "SELECT  {$fields} FROM {$this->table} {$join}";
         
         //Preparar statement
         $stmt = $this->conn->prepare($query);
