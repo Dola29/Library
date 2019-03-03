@@ -1,7 +1,8 @@
 <?php 
+namespace App\Controllers;
 
-require_once "../Library/models/BookModel.php";
-require_once "../Library/controllers/ParentController.php";
+use App\Models\BookModel;
+use ParentController;
 
 class Book extends ParentController
 {

@@ -1,5 +1,7 @@
 <?php 
-include_once '../Library/classes/Database.php';
+namespace App\Models;
+
+use App\Config\Database;
 
 class ParentModel {
 
@@ -17,7 +19,7 @@ class ParentModel {
        y retorna todos los registros de la tabla 
     */
     public function get_all($fields) {
-        // Create query
+        // Crear query
         $query = "SELECT  {$fields} FROM {$this->table}";
         
         //Preparar statement

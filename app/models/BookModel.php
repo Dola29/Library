@@ -1,5 +1,7 @@
 <?php 
-require_once "../Library/models/ParentModel.php";
+namespace App\Models;
+
+use ParentModel;
 
 
 class BookModel extends ParentModel {

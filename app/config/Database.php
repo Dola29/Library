@@ -1,5 +1,7 @@
 <?php 
 
+namespace App\Config;
+
 class Database {
   // DB Parametros
   private $host = 'localhost';
