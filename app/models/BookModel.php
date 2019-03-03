@@ -20,7 +20,7 @@ class BookModel extends ParentModel {
   // Obtener un libro
   public function read_single($id) {
     $campos = "id,title,category,author,`date`"; 
-    $data = parent::get_single($campos,$id);            
+    $data = parent::get_single($campos, null, $id);            
     return $data;  
   }
 
