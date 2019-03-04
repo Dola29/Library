@@ -10,7 +10,13 @@ $router->set404(function() {
 
 // Ruta estatica, pagina de inicio.
 $router->get('/', function() {
-	echo '<h1>Bienvenido a la libreria</h1>';
+    echo '<h1>Bienvenido a la libreria</h1>';
+    echo '<h3>Puedes acceder estas URLS, con diferentes libros y paginas:</h6>';
+    echo '<ul>'.'<li>books/ --> para ver el listado de libros</li>'.
+                '<li>book/1 --> para ver un libro (solo hay 3 en el sistema)</li>'.
+                '<li>book/pages/ --> todas las paginas de un libro (Cada libro tiene 5paginas)</li>'.
+                '<li>book/1/page/1/(text o html)--> la pagina del libro 1 en el formato desado</li>'
+         .'</ul>';
 });
 
 /**

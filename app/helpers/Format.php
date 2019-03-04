@@ -10,23 +10,26 @@ class Format{
      */
 
     public static function book_printer($data, $single = false){   
+        if($data != null){
+            $texto = '<h5>';
 
-        $texto = '<h5>';
+            if($single == false){
+            
+                foreach($data as $d){
+                    $texto .=  "Codigo:{$d['id']}<br>Titulo:{$d['title']}<br>Categoria: {$d['category']}".
+                            " <br> Autor: {$d['author']} <br> Fecha: {$d['date']} <br><br>";
+                }
 
-        if($single == false){
-        
-            foreach($data as $d){
-                $texto .=  "Codigo:{$d['id']}<br>Titulo:{$d['title']}<br>Categoria: {$d['category']}".
-                        " <br> Autor: {$d['author']} <br> Fecha: {$d['date']} <br><br>";
+            }else{
+                $texto .=  "Codigo:{$data['id']}<br>Titulo:{$data['title']}<br>Categoria: {$data['category']}".
+                                " <br> Autor: {$data['author']} <br> Fecha: {$data['date']} <br><br>";
             }
 
+            $texto .= '</h5>';
+            echo $texto;
         }else{
-               $texto .=  "Codigo:{$data['id']}<br>Titulo:{$data['title']}<br>Categoria: {$data['category']}".
-                            " <br> Autor: {$data['author']} <br> Fecha: {$data['date']} <br><br>";
-        }
-
-        $texto .= '</h5>';
-        echo $texto;
+            echo 'Registro no encontrado';
+        }        
     }
 
     /**
@@ -37,33 +40,41 @@ class Format{
      */
 
     
-    public static function page_printer($data, $single = false, $format = 'text'){   
+    public static function page_printer($data, $single = false, $format = 'text'){ 
+        if($data != null){  
 
-        $texto = "<div style='width:95%; padding:3px;'>";
+            $texto = "<div style='width:95%; padding:3px;'>";
 
-        if($single == false){
-        
-            foreach($data as $d){
-                $texto .=  "<b>Pagina: {$d['number']}</b><br><br>{$d['content']}".
-                           "<br><br><b>Del Libro: {$d['book']}</b><br><br><br>";
-            }
-
-            $texto .= '</div>';
-
-            echo $texto;
-
-        }else{
-            $texto .=  "<b>Pagina: {$data['number']}</b><br><br>{$data['content']}".
-                       "<br><br><b>Del Libro: {$data['book']}</b><br><br><br>";
+            if($single == false){
             
-            $texto .= '</div>';           
-            
-            if($format == 'text'){
-                echo htmlentities($texto);
-            }else {
+                foreach($data as $d){
+                    $texto .=  "<b>Pagina: {$d['number']}</b><br><br>{$d['content']}".
+                            "<br><br><b>Del Libro: {$d['book']}</b><br><br><br>";
+                }
+
+                $texto .= '</div>';
+
                 echo $texto;
-            }           
-        }
+
+            }else{
+                $texto .=  "<b>Pagina: {$data['number']}</b><br><br>{$data['content']}".
+                        "<br><br><b>Del Libro: {$data['book']}</b><br><br><br>";
+                
+                $texto .= '</div>';  
+                
+                /**
+                 * hasta que se requiera otro formato solo imprime HTML o TEXT
+                 */
+                
+                if($format == 'text'){
+                    echo htmlentities($texto);
+                }else {
+                    echo $texto;
+                }           
+            }
+        }else{
+            echo 'Registro no encontrado';
+        } 
         
     }
 }

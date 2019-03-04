@@ -15,9 +15,6 @@ class PageModel extends ParentModel {
     $join = "join books as b on p.book_id = b.id";
     $filter = "where b.id = {$book_id}";   
     $data = parent::get_all($campos, $join, $filter);
-    /*if($data == null){
-      return array('message'=>'Este registro no exise');
-    }*/
     return $data;
   }
 
@@ -25,10 +22,7 @@ class PageModel extends ParentModel {
   public function read_single($book_id, $page_number) {
     $campos = "p.id, p.number, p.content, p.book_id, b.title as book";
     $join = "join books as b on p.book_id = {$book_id}";
-    $data = parent::get_single($campos, $join, 'WHERE p.number',$page_number);    
-    /*if($data == null){
-      return array('message'=>'Este registro no exise');
-    } */       
+    $data = parent::get_single($campos, $join, 'WHERE p.number',$page_number);          
     return $data;  
   }
 
