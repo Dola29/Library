@@ -20,13 +20,13 @@ $router->get('/', function() {
 //Obtener todos los libros del sistema
 $router->get('/books/', function() {
     $book = new App\Controllers\Book();
-    print_r($book->read_all());
+    $book->read_all();
 });
 
 //Obtener un libro del sistema
 $router->get('/book/(\d+)', function($id = null) {
     $book = new App\Controllers\Book();
-	print_r($book->read_one($id));
+	$book->read_one($id);
 });
 
 //Obtener todas las paginas de un libro del sistema
