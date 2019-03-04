@@ -35,13 +35,9 @@ $router->get('/book/(\d+)/pages', function($book_id) {
     print_r($page->read_all($book_id));
 });
 
-//Dynamic route with (successive) optional subpatterns: /blog(/year(/month(/day(/slug))))
-$router->get('/blog(/\d{4}(/\d{2}(/\d{2}(/[a-z0-9_-]+)?)?)?)?', function($year = null, $month = null, $day = null, $slug = null) {
-	if (!$year) { echo 'Blog overview'; return; }
-	if (!$month) { echo 'Blog year overview (' . $year . ')'; return; }
-	if (!$day) { echo 'Blog month overview (' . $year . '-' . $month . ')'; return; }
-	if (!$slug) { echo 'Blog day overview (' . $year . '-' . $month . '-' . $day . ')'; return; }
-	echo 'Blogpost ' . htmlentities($slug) . ' detail (' . $year . '-' . $month . '-' . $day . ')';
+$router->get('/book/(\d+)/page/(\d+)', function($book_id, $page_number) {
+    $page = new App\Controllers\Page();
+    print_r($page->read_one($book_id, $page_number));
 });
 
 // Thunderbirds are go!

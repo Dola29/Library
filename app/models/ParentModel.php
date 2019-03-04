@@ -26,8 +26,6 @@ class ParentModel {
         
         // Crear query
         $query = "SELECT  {$fields} FROM {$this->table} {$join} {$filter}";
-
-        print $query;
         
         //Preparar statement
         $stmt = $this->conn->prepare($query);
