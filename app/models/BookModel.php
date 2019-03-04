@@ -12,7 +12,7 @@ class BookModel extends ParentModel {
   // Obtener todos los libros
   public function read() {
     $campos = "id,title,category,author,`date`";    
-    $data = parent::get_all($campos);
+    $data = parent::get_all($campos, null, null);
     return $data;
   }
 

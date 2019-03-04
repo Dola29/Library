@@ -18,9 +18,16 @@ class ParentModel {
     /* recibe un string con los campos a seleccionar
        y retorna todos los registros de la tabla 
     */
-    public function get_all($fields, $join = null) {
+    public function get_all($fields, $join = null, $filter) {
+        //validar que el filtro no este nulo
+        if($filter == null){
+            $filter = 'WHERE id';
+        }
+        
         // Crear query
-        $query = "SELECT  {$fields} FROM {$this->table} {$join}";
+        $query = "SELECT  {$fields} FROM {$this->table} {$join} {$filter}";
+
+        print $query;
         
         //Preparar statement
         $stmt = $this->conn->prepare($query);

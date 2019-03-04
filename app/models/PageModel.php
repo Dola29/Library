@@ -12,8 +12,9 @@ class PageModel extends ParentModel {
   // Obtener todas las paginas
   public function read($book_id) {
     $campos = "p.id, p.number, p.content, p.book_id, b.title as book";
-    $join = "join books as b on p.book_id = b.id";    
-    $data = parent::get_all($campos, $join);
+    $join = "join books as b on p.book_id = b.id";
+    $filter = "where b.id = {$book_id}";   
+    $data = parent::get_all($campos, $join, $filter);
     return $data;
   }
 
