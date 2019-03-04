@@ -19,15 +19,20 @@ $router->get('/', function() {
 
 //Obtener todos los libros del sistema
 $router->get('/books/', function() {
-    $books = new App\Controllers\Book();
-    print_r($books->read_all());
+    $book = new App\Controllers\Book();
+    print_r($book->read_all());
 });
 
 //Obtener un libro del sistema
 $router->get('/book/(\d+)', function($id = null) {
-    $books = new App\Controllers\Book();
-	print_r($books->read_one($id));
-	//print $id;
+    $book = new App\Controllers\Book();
+	print_r($book->read_one($id));
+});
+
+//Obtener todas las paginas de un libro del sistema
+$router->get('/book/(\d+)/pages', function($book_id) {
+    $page = new App\Controllers\Page();
+    print_r($page->read_all($book_id));
 });
 
 //Dynamic route with (successive) optional subpatterns: /blog(/year(/month(/day(/slug))))

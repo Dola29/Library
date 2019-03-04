@@ -15,7 +15,7 @@ class Page extends ParentController
     public function read_all($book_id){ 
         header('Access-Control-Allow-Origin: *');
         header('Content-Type: application/json');     
-        print(json_encode($this->page->read()));
+        print(json_encode($this->page->read($book_id)));
     }
 
     public function read_one($book_id, $page_number){ 
