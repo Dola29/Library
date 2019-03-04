@@ -35,9 +35,9 @@ $router->get('/book/(\d+)/pages', function($book_id) {
     print_r($page->read_all($book_id));
 });
 //Obtener una pagina de un libro en el formato deseado
-$router->get('/book/(\d+)/page/(\d+)', function($book_id, $page_number) {
+$router->get('/book/(\d+)/page/(\d+)/(\w+)', function($book_id, $page_number, $format) {
     $page = new App\Controllers\Page();
-    print_r($page->read_one($book_id, $page_number));
+    print_r($page->read_one($book_id, $page_number, $format));
 });
 
 // Thunderbirds are go!
