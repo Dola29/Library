@@ -18,7 +18,7 @@ class BookModel extends ParentModel {
   }
 
   // Obtener la pagina de un libro
-  public function read_single($book_id, $page_no) {
+  public function read_single($book_id, $page_number) {
     $campos = "p.id, p.number, p.contenet, p.book_id, b.name as book";
     $join = "join book as b on p.book_id = {$book_id}";
     $data = parent::get_single($campos, null, $page_no, 'p.number');            
