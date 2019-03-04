@@ -38,7 +38,12 @@ class ParentModel {
     /* recibe un string con los campos a seleccionar y el id del registro
        y retorna un registro de la tabla 
     */
-    public function get_single($fields, $join = null, $filter = 'WHERE id', $id) {
+    public function get_single($fields, $join = null, $filter, $id) {
+        //validar que el filtro no este nulo
+        if($filter == null){
+            $filter = 'WHERE id';
+        }
+        
         // Crear query
         $query = "SELECT {$fields} FROM {$this->table} {$join} {$filter} = {$id}";
 
