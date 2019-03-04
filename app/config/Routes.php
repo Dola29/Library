@@ -5,12 +5,12 @@ $router = new \Bramus\Router\Router();
 // Custom 404 
 $router->set404(function() {
 	header('HTTP/1.1 404 Not Found');
-	echo '404, route not found!';
+	echo '404, Ruta no encontrada!';
 });
 
 // Ruta estatica, pagina de inicio.
 $router->get('/', function() {
-	echo '<h1>bramus/router</h1><p>Try these routes:<p><ul><li>/hello/<em>name</em></li><li>/blog</li><li>/blog/<em>year</em></li><li>/blog/<em>year</em>/<em>month</em></li><li>/blog/<em>year</em>/<em>month</em>/<em>day</em></li></ul>';
+	echo '<h1>Bienvenido a la libreria</h1>';
 });
 
 /**
@@ -34,7 +34,7 @@ $router->get('/book/(\d+)/pages', function($book_id) {
     $page = new App\Controllers\Page();
     print_r($page->read_all($book_id));
 });
-
+//Obtener una pagina de un libro en el formato deseado
 $router->get('/book/(\d+)/page/(\d+)', function($book_id, $page_number) {
     $page = new App\Controllers\Page();
     print_r($page->read_one($book_id, $page_number));
