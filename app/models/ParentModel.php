@@ -5,8 +5,8 @@ use App\Config\Database;
 
 class ParentModel {
 
-    public $conn;
-    public $table;
+    private $conn;
+    private $table;
     
     public function __construct($table) {
         $db = new Database();
@@ -18,7 +18,7 @@ class ParentModel {
     /* recibe un string con los campos a seleccionar
        y retorna todos los registros de la tabla 
     */
-    public function get_all($fields, $join = null, $filter) {
+    protected function get_all($fields, $join = null, $filter) {
         //validar que el filtro no este nulo
         if($filter == null){
             $filter = 'WHERE id';
@@ -43,7 +43,7 @@ class ParentModel {
     /* recibe un string con los campos a seleccionar y el id del registro
        y retorna un registro de la tabla 
     */
-    public function get_single($fields, $join = null, $filter, $id) {
+    protected function get_single($fields, $join = null, $filter, $id) {
         //validar que el filtro no este nulo
         if($filter == null){
             $filter = 'WHERE id';
